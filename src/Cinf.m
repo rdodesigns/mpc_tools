@@ -81,7 +81,7 @@ end % end function calcCinf
 
 function [] = catch_input_errors(A, X, B, U)
 
-  if exist('mpt_demo1') < 2
+  if exist('mpt_demo1') ~= 2
     error('Cinf:NoMPTToolbox', 'The MPT toolbox is required for Cinf');
   end
 
