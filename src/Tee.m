@@ -58,31 +58,30 @@ end
 
 function closure = TeeClosure(buffer_size)
   buffer = {};
+  closure = @tee;
 
   function [out, current_buffer] = tee(in)
 
     current_buffer = buffer;
 
     % If we don't have an input, just return the current buffer. This is a
-    % common use pattern.
+    % common use pattern to obtain the current buffer.
     if nargin == 0
       out = [];
       return
     end
 
-    % If we don't have a buffer, then the function is easy!
+    % If we don't have a buffer, then the function is a silly pipe!
     if buffer_size == 0
       out = in;
       return
     end
 
-    % If we have a finitely sized buffer
     if isfinite(buffer_size)
       % Chop off the first few elements before appending the new one.
       if length(buffer) >= buffer_size
-        % The chopping is written using the length of the buffer in case
-        % someone gets a bit handsy and uses this function in a threaded
-        % environment.
+        % The chopping statement is written using the length of the buffer in
+        % case someone attempts to use Tee in a threaded environment.
         buffer = buffer(length(buffer) - buffer_size + 2 : end);
       end
     end
@@ -93,11 +92,9 @@ function closure = TeeClosure(buffer_size)
     out = in;
     current_buffer = buffer;
 
-  end
+  end % end function tee
 
-  closure = @tee;
-
-end
+end % end function TeeClosure
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          Support Functions                          %
