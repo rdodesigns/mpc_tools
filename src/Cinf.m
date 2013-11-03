@@ -122,6 +122,9 @@ function opts = parseOptions(varin)
             ['Value of ' option_str ' must be numeric']);
     end
 
+    if strcmp(option_str, 'iterations') && option_value < 1
+      error('Cinf:LessOneIteration', 'Must have >=1 iterations');
+    end
     opts.(option_str) = option_value;
   end
 
