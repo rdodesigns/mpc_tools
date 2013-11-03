@@ -118,7 +118,7 @@ function opts = parseOptions(varin)
     end
 
     if ~isnumeric(option_value)
-      error('Cinf:NonIntegerArg', ...
+      error('Cinf:NonNumericArg', ...
             ['Value of ' option_str ' must be numeric']);
     end
 
