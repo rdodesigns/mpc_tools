@@ -113,7 +113,7 @@ function [] = check_input_errors(buffer_size)
     error('Tee:NegativeBufferSize', 'Buffer size must be positive');
   end
 
-  if mod(buffer_size, 1)
+  if (buffer_size ~= floor(buffer_size))
     error('Tee:FloatBufferSize', 'Buffer size must be an integer');
   end
 
