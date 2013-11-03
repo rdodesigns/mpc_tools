@@ -100,6 +100,7 @@ function opts = parseOptions(varin)
 
   valid_options = {'iterations', 'timeout'};
 
+  % Set default opts.
   opts.iterations = 10;
   opts.timeout = 5;
 
@@ -110,17 +111,18 @@ function opts = parseOptions(varin)
 
   for k = 1:length(varin)/2
     option_str = varin{2*k-1};
+    option_value = varin{2*k};
 
-    if ismember(option_str, valid_options) && isnumeric(varin{2*k})
-      opts = setfield(opts, option_str, varin{2*k});
-    else
-      if ~isnumeric(varin{2*k})
-        error('Cinf:NonIntegerArg', ...
-              ['Value of ' option_str ' must be numeric']);
-      end
-
-      error('Cinf:UnknownOption', 'Unrecognised option');
+    if ~ismember(option_str, valid_options)
+      error('Cinf:UnknownOption', ['Unrecognised option: ' option_str]);
     end
+
+    if ~isnumeric(option_value)
+      error('Cinf:NonIntegerArg', ...
+            ['Value of ' option_str ' must be numeric']);
+    end
+
+    opts.(option_str) = option_value;
   end
 
 end
