@@ -41,7 +41,7 @@ function out = Pre(A, X, B, U)
       case 4
         catch_input_errors(A, X, B, U);
       otherwise
-        error('Can only accept 2 or 4 inputs');
+        error('Pre:NotTwoOrFourInputs', 'Can only accept 2 or 4 inputs');
     end
   catch err
     error(err.identifier, err.message);
