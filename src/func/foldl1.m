@@ -1,18 +1,10 @@
-function out = foldl1(accumulator, in)
+function out = foldl1(accumulator, list)
 
-
-  if iscell(in)
-    out = in{1};
-
-    for k=2:length(in)
-      out = accumulator(out, in{k});
-    end
-  else
-    out = in(1);
-
-    for k=2:length(in)
-      out = accumulator(out, in(k));
-    end
+  switch nargin
+    case 1
+      out = @(list) foldl(accumulator, list(1), list(2:end));
+    otherwise
+      out = foldl(accumulator, list(1), list(2:end));
   end
 
 end
