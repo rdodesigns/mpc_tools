@@ -1,15 +1,13 @@
-function out = foldl(accumulator, initial, in)
+% Algorithm copied from http://goo.gl/HgoAG3
+function out = foldl(accumulator, out, list)
 
-  out = initial;
-
-  if iscell(in)
-    for k=1:length(in)
-      out = accumulator(out, in{k});
-    end
-  else
-    for k=1:length(in)
-      out = accumulator(out, in(k));
-    end
+  switch nargin
+    case 1, out = @(out, list) foldl(accumulator, out, list);
+    case 2, out = @(list) foldl(accumulator, out, list);
+    otherwise
+      for k=list
+        out = accumulator(out,k);
+      end
   end
 
 end
