@@ -34,24 +34,24 @@ function out = Pre(A, X, B, U)
 %       % Pre for the control system
 %       P = Pre(A, X, B, U);
 
-  if ~ismember(nargin, [2,4])
-    error('Can only accept 2 or 4 inputs');
-  end
-
   try
-    if nargin == 2
-      catch_input_errors(A, X);
-    elseif nargin == 4
-      catch_input_errors(A, X, B, U);
+    switch nargin
+      case 2
+        catch_input_errors(A, X);
+      case 4
+        catch_input_errors(A, X, B, U);
+      otherwise
+        error('Can only accept 2 or 4 inputs');
     end
   catch err
     error(err.identifier, err.message);
   end
 
-  if nargin == 2
-    out = PreAuto(A, X);
-  elseif nargin == 4
-    out = PreControl(A, X, B, U);
+  switch nargin
+    case 2
+      out = PreAuto(A, X);
+    case 4
+      out = PreControl(A, X, B, U);
   end
 
 end % end function Pre
