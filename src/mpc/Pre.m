@@ -14,17 +14,21 @@ function out = Pre(A, X, B, U)
 %   Example:
 %
 %       % Set up the autonomous system for 2 state variables.
-%       A = [1, 0; 0, 1];
-%       Hx = [1, 0; -1, 0; 0, 1; 0, -1];
+%       dt = 0.1;
+%       zeta = 0.1;
+%       omega = 2;
+%       A = [1, dt; -omega^2*dt, 1-2*zeta*omega*dt];
+%       B = [0; omega^2*dt];
+%
+%       Hx = [eye(2); -eye(2)];
 %       Kx = ones(4,1);
 %       X = Polyhedron(Hx, Kx);
 %
 %       % Pre for the autonomous system
 %       P = Pre(A, X);
 %
-%       % Set up the control system for 1 control variable.
 %       Hu = [1; -1];
-%       Ku = ones(2,1);
+%       Ku = ones(2,1)*0.75;
 %       U = Polyhedron(Hu, Ku);
 %
 %       % Pre for the control system
