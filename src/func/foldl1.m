@@ -1,4 +1,7 @@
 function out = foldl1(accumulator, list)
+%FOLDL1: Same as foldl but does not need an initial value.
+%
+%   See also FOLDL, FOLDR, FOLDR1, BUFFEREDFOLDL, BUFFEREDFOLDR
 
   switch nargin
     case 1
