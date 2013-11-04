@@ -1,3 +1,20 @@
+Version 0.0.2 (2013/11/03 17:25 UTC-08)
+=======================================
+
+Added fold functions. They are nearly equivalent to their default forms, with
+a slight modification to curry the functions automatically based on the number
+of inputs.
+
+New
+---
+- foldl
+- foldr
+- foldl1
+- foldr1
+- BufferedFoldl
+- BufferedFoldr
+
+
 Version 0.0.1 (2013/11/02 02:21 UTC-07)
 =======================================
 
