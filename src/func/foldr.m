@@ -1,15 +1,12 @@
-function out = foldr(accumulator, initial, in)
+function out = foldr(accumulator, out, list)
 
-  out = initial;
-
-  if iscell(in)
-    for k=fliplr(1:length(in))
-      out = accumulator(out, in{k});
-    end
-  else
-    for k=fliplr(1:length(in))
-      out = accumulator(out, in(k));
-    end
+  switch nargin
+    case 1, out = @(out, list) foldr(accumulator, out, list);
+    case 2, out = @(list) foldr(accumulator, out, list);
+    otherwise
+      for k=fliplr(list)
+        out = accumulator(out,k);
+      end
   end
 
 end
