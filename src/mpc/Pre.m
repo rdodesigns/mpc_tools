@@ -89,10 +89,11 @@ end % end function PreControl
 
 function out = polyTopeOrHedron(H, K, type)
 
-  if strcmp(type, 'Polyhedron')
-    out = Polyhedron(H, K);
-  else
-    out = polytope(H, K);
+  switch type
+    case 'Polyhedron'
+      out = Polyhedron(H, K);
+    case 'polytope'
+      out = polytope(H, K);
   end
 
 end
