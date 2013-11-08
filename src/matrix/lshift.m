@@ -1,5 +1,5 @@
+%LSHIFT: Returns the lower shift matrix of size n x n
 function L = Lshift(n)
-%USHIFT: Returns the upper shift matrix of size nxn
 
   L = circshift(eye(n),[1, 0]);
   L(1,n) = 0;
