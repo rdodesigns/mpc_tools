@@ -1,4 +1,3 @@
-function out = BufferedFoldl(accumulator, initial)
 %BUFFEREDFOLDL: returns a foldl function with a buffer attached.
 %
 %   foldl = BufferedFoldl(accumulator, initial) returns a foldl function that
@@ -16,6 +15,8 @@ function out = BufferedFoldl(accumulator, initial)
 %       step_counter([1,2]) % 11
 %
 %   See also FOLDL, FOLDR, FOLDL1, FOLDR1, BUFFEREDFOLDR
+
+function out = BufferedFoldl(accumulator, initial)
 
   out = @fold;
 

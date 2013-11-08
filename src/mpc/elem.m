@@ -1,9 +1,10 @@
-function out = elem(x, X)
 %ELEM: Check if x is an element of X.
 %
 %   out = elem(x, X) checks if variable x is an element of the polytope/
 %       Polyhedron X. If x is of class sdpvar, then this returns a constraint
 %       condition.
+
+function out = elem(x, X)
 
   switch class(X)
     case {'Polyhedron', 'polytope'}

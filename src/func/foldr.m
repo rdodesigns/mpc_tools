@@ -1,4 +1,3 @@
-function out = foldr(accumulator, out, list)
 %FOLDR: Combines list using an accumulator function from right to left.
 %
 %   foldr(f, s, [x1, ...,  xl, xm, xn] => f( (...f(f(f(s, xn),xm),xl), ...), x1)
@@ -36,6 +35,8 @@ function out = foldr(accumulator, out, list)
 %   Algorithm copied from http://goo.gl/HgoAG3
 %
 %   See also FOLDL, FOLDL1, FOLDR1, BUFFEREDFOLDL, BUFFEREDFOLDR
+
+function out = foldr(accumulator, out, list)
 
   switch nargin
     case 1, out = @(out, list) foldr(accumulator, out, list);

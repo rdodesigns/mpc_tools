@@ -1,4 +1,3 @@
-function [C, converged, iter, time] = Cinf(A, X, B, U, varargin)
 %CINF: Calculates the C infinity set for a control system.
 %
 %   C = Cinf(A, X, B, U) returns a Polyhedron that represents the
@@ -32,6 +31,8 @@ function [C, converged, iter, time] = Cinf(A, X, B, U, varargin)
 %                   non-converging cases, in seconds. This must be a number.
 %
 %   See also POLYHEDRON, DLQR
+
+function [C, converged, iter, time] = Cinf(A, X, B, U, varargin)
 
   try
     catch_input_errors(A, X, B, U);

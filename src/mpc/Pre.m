@@ -1,4 +1,3 @@
-function out = Pre(A, X, B, U)
 %PRE: Calculate the Pre set of an autonomous or control system.
 %
 %   P = PRE(A, X) caclulates the Pre set for an autonomous system.
@@ -33,6 +32,8 @@ function out = Pre(A, X, B, U)
 %
 %       % Pre for the control system
 %       P = Pre(A, X, B, U);
+
+function out = Pre(A, X, B, U)
 
   try
     switch nargin

@@ -1,4 +1,3 @@
-function tee = Tee(buffer_size)
 %TEE: A buffered pipe. Similar in concept to the UNIX tee command.
 %
 %   Tee acts as a buffered pipe. It captures its input and returns it as the
@@ -40,6 +39,8 @@ function tee = Tee(buffer_size)
 %
 %       [~, buffer] = tee();
 %       time_series = horzcat(buffer{:});
+
+function tee = Tee(buffer_size)
 
   if nargin == 1
     try

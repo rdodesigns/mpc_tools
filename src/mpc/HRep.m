@@ -1,8 +1,9 @@
-function [H, K] = HRep(P)
 % HREP: Return the H representation of a polytope or Polyhedron
 %
 %   [H, K] = HRep(P) returns the H representation of P. P can be either a
 %       polytope or a Polyhedron type object.
+
+function [H, K] = HRep(P)
 
   if strcmp(class(P), 'Polyhedron')
     H = P.A; K = P.b;

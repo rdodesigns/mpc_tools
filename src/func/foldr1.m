@@ -1,7 +1,8 @@
-function out = foldr1(accumulator, list)
 %FOLDR1: Same as foldr but does not need an initial value.
 %
 %   See also FOLDR, FOLDR, FOLDR1, BUFFEREDFOLDL, BUFFEREDFOLDR
+
+function out = foldr1(accumulator, list)
 
   switch nargin
     case 1
