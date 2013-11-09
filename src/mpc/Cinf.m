@@ -35,7 +35,7 @@
 function [C, converged, iter, time] = Cinf(A, X, B, U, varargin)
 
   try
-    catch_input_errors(A, X, B, U);
+    catchInputErrors(A, X, B, U);
     opts = parseOptions(varargin);
   catch err
     error(err.identifier, err.message);
@@ -80,7 +80,7 @@ end % end function calcCinf
 %                          Support Functions                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [] = catch_input_errors(A, X, B, U)
+function [] = catchInputErrors(A, X, B, U)
 
   if exist('mpt_demo1') ~= 2
     error('Cinf:NoMPTToolbox', 'The MPT toolbox is required for Cinf');

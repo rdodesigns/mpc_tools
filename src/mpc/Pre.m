@@ -38,9 +38,9 @@ function out = Pre(A, X, B, U)
   try
     switch nargin
       case 2
-        catch_input_errors(A, X);
+        catchInputErrors(A, X);
       case 4
-        catch_input_errors(A, X, B, U);
+        catchInputErrors(A, X, B, U);
       otherwise
         error('Pre:NotTwoOrFourInputs', 'Can only accept 2 or 4 inputs');
     end
@@ -104,7 +104,7 @@ end
 %                          Support Functions                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [] = catch_input_errors(A, X, B, U)
+function [] = catchInputErrors(A, X, B, U)
 
   if exist('mpt_demo1') ~= 2
     error('Cinf:NoMPTToolbox', 'The MPT toolbox is required for Cinf');

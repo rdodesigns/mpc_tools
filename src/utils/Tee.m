@@ -44,7 +44,7 @@ function tee = Tee(buffer_size)
 
   if nargin == 1
     try
-      check_input_errors(buffer_size);
+      catchInputErrors(buffer_size);
     catch err
       error(err.identifier, err.message);
     end
@@ -101,7 +101,7 @@ end % end function TeeClosure
 %                          Support Functions                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [] = check_input_errors(buffer_size)
+function [] = catchInputErrors(buffer_size)
 
   if ~isnumeric(buffer_size)
     error('Tee:NonNumericBufferSize', 'Buffer size must be numeric');
