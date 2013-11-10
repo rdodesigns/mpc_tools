@@ -1,3 +1,18 @@
+%SUBSEQUENCES: Return all subsequences of an input list.
+%
+%   Enumerates all the subsequnces of an input list. The result is a cell
+%   array. Do not use of lists larger than 15 elements.
+%
+%   For example
+%
+%       a = 'abc';
+%
+%       subsequences(a)
+%
+%       ans =
+%
+%           'a'    'b'    'c'    'ab'    'ac'    'bc'    'abc'
+
 function out = subsequences(list)
 
   n = length(list);
