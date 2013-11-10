@@ -127,6 +127,10 @@ function opts = parseOptions(varin)
       error('Cinf:LessOneIteration', 'Must have >=1 iterations');
     end
 
+    if strcmp(option_str, 'iterations') && isinf(option_value)
+      option_value = 9223372036854775807;
+    end
+
     if strcmp(option_str, 'timeout') && option_value < 0
       error('Cinf:NegativeTimeout', 'Timeout must be positive');
     end
