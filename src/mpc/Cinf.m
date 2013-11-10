@@ -8,7 +8,7 @@
 %       the system.
 %
 %       NOTE: This algorithm is not guaranteed to converge, and it by default
-%       runs until either 5 seconds have passed or 10 iterations.
+%       runs for one second.
 %
 %   [C, converged, iter, time] = Cinf(A, X, B, U) returns a few additional
 %       arguments related to the success of the algorith. 'converged' is a
@@ -102,8 +102,8 @@ function opts = parseOptions(varin)
   valid_options = {'iterations', 'timeout'};
 
   % Set default opts.
-  opts.iterations = 10;
-  opts.timeout = 5;
+  opts.iterations = 9223372036854775807;
+  opts.timeout = 1;
 
   if mod(length(varin),2) == 1
     error('Cinf:InvalidNumInputs', ...
