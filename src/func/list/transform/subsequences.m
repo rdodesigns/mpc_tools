@@ -1,6 +1,8 @@
 function out = subsequences(list)
 
   n = length(list);
+
+  %% Add each element to the subsequent list, since nchoosek will not do this.
   subsequence = num2cell(list.',2);
 
   for k = 2:n
