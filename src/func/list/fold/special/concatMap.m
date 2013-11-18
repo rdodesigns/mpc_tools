@@ -14,11 +14,12 @@
 %
 %            4     5     6
 %
-%       concatMap(@(y) ([y*4, y^4]), list)
+%       concatMap(@(k) ({k; k^2}), [1:5])
 %
 %       ans =
 %
-%            4     1     8    16    12    81
+%           [1]    [2]    [3]    [ 4]    [ 5]
+%           [1]    [4]    [9]    [16]    [25]
 
 function out = concatMap(f, list)
 

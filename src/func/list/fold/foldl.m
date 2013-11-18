@@ -2,19 +2,21 @@
 %
 %   foldl(f, s, [x1, x2, x3, ..., xn] => f( (...f(f(f(s, x1),x2),x3), ...), xn)
 %
-%   value = foldl(accumulator, initial, list) takes some list and recursively
-%       applies the accumulator function to the intial value and head of the
-%       list, returning a new initial value. The accumulator must be a function
-%       that takes two inputs and returns one output. It traverses the list
+%   Note that the provided foldl is equivalent to the strict version in
+%   Haskell, foldl'.
+%
+%   value = foldl(f, acc, list) takes some list and recursively
+%       applies f to the acc "accumulator" value and head of the list,
+%       returning a new initial value. f must be a function that takes two
+%       inputs (\acc head_list) and returns one output. It traverses the list
 %       from left to right.
 %
-%   acc_with_init = foldl(accumulator, initial) returns a function that takes
+%   acc_with_init = foldl(f, acc) returns a function that takes
 %       in a list. It performs the same as above, but with a constant initial
-%       value and constant accumulator function.
+%       acc value and constant f.
 %
-%   acc = foldl(accumulator) returns a function that takes in an initial value
-%       and a list. It performs the same as above but with a constant
-%       accumulator function.
+%   acc = foldl(f) returns a function that takes in an initial acc value
+%       and a list. It performs the same as above but with a constant f.
 %
 %   Examples
 %   --------
