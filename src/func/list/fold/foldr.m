@@ -36,14 +36,14 @@
 %
 %   See also FOLDL, FOLDL1, FOLDR1, BUFFEREDFOLDL, BUFFEREDFOLDR
 
-function out = foldr(accumulator, out, list)
+function acc = foldr(f, acc, list)
 
   switch nargin
-    case 1, out = @(out, list) foldr(accumulator, out, list);
-    case 2, out = @(list) foldr(accumulator, out, list);
+    case 1, acc = @(acc, list) foldr(f, acc, list);
+    case 2, acc = @(list) foldr(f, acc, list);
     otherwise
       for k=fliplr(list)
-        out = accumulator(out,k);
+        acc = f(k, acc);
       end
   end
 
