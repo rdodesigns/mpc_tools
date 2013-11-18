@@ -37,14 +37,14 @@
 %   Algorithm copied from http://goo.gl/HgoAG3
 %
 %   See also FOLDR, FOLDL1, FOLDR1, BUFFEREDFOLDL, BUFFEREDFOLDR
-function out = foldl(accumulator, out, list)
+function acc = foldl(f, acc, list)
 
   switch nargin
-    case 1, out = @(out, list) foldl(accumulator, out, list);
-    case 2, out = @(list) foldl(accumulator, out, list);
+    case 1, acc = @(acc, list) foldl(f, acc, list);
+    case 2, acc = @(list) foldl(f, acc, list);
     otherwise
       for k=list
-        out = accumulator(out,k);
+        acc = f(acc,k);
       end
   end
 
