@@ -27,7 +27,8 @@ function out = concatMap(f, list)
     case 0, out = [];
     case 1, out = f(list);
     otherwise
-      out = foldl(@(x,y) (horzcat(x, f(y))), f(list(1)), list(2:end));
+      % Follows Haskell convention: concatMap f =  foldr ((++) . f) []
+      out = foldr(@(x, acc) horzcat(f(x), acc), [], list);
   end
 
 end
