@@ -1,20 +1,26 @@
 function out = zipWith2(f, a, b)
 
-  if length(a) >= length(b)
-    len = length(a);
-  else
-    len = length(b);
-  end
-
-  switch len
-    case 0, out = [];
-    case 1, out = f(a(1), b(1));
+  switch nargin
+    case 1, out = @(a, b) zipWith2(f, a, b);
+    case 2, out = @(b) zipWith2(f, a, b);
     otherwise
-      out = f(a(1), b(1));
-
-      for k = 2:len
-        out = horzcat(out, f(a(k), b(k)));
+      if length(a) >= length(b)
+        len = length(b);
+      else
+        len = length(a);
       end
-  end
+
+      switch len
+        case 0, out = [];
+        case 1, out = f(a(1), b(1));
+        otherwise
+          out = f(a(1), b(1));
+
+          for k = 2:len
+            out = horzcat(out, f(a(k), b(k)));
+          end
+      end
+
+    end
 
 end
