@@ -13,6 +13,8 @@
 %       % Take a few different types of norms
 %       norm_inf(a) % 0.9340
 %       norm_inf(b) % 0.8235
+%
+%   See also PARTIAL.
 function out = rpartial(f, varargin)
 
   args = varargin;
