@@ -13,6 +13,8 @@
 %       norm_a(Inf) % 0.9340
 %       norm_a(1)   % 5.0464
 %       norm_a()    % 1.9405. The norm with one input is the 2 norm.
+%
+%   See also RPARTIAL.
 
 function out = partial(f, varargin)
 
