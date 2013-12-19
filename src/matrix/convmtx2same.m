@@ -7,6 +7,7 @@
 %       as the input. In this case, the elements outside of the matrix can be
 %       thought of as zeros.
 %
+%   The kernel must be of dimension two, be square, and have an odd size.
 %
 %   Example
 %   -------
@@ -22,13 +23,19 @@
 %   C = convmtx2same(kernel, 5, 5);
 %
 %   %% Result
-%   R = C*M(:);
+%   R = reshape(C*M(:), n, m);
 %
 %   %% The difference between the two is only floating point error.
-%   assert(abs(R - conv2(M, kernel, 'same')) < 1e-15);
+%   assert(all(all(abs(R - conv2(M, kernel, 'same')) < 1e-14)));
 %
 %   See also CONVMTX2, CONVMTX, CONV2
 function out = convmtx2same(kernel, n, m)
+
+  if not(ndims(kernel) == 2 && size(kernel, 1) == size(kernel, 2) && ...
+         mod(size(kernel,1), 2) == 1)
+    error('convmtx2same:NonSquareOddMatrix', ...
+          'Matrix must be a two dimensional square with odd size');
+  end
 
   %% Kernel dimensions. Radius is the distance from the centre, whereas the
   %  padding is the total amount of padding added to parallel sides of the
